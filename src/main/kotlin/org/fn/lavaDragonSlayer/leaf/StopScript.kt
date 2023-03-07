@@ -5,7 +5,7 @@ import org.powbot.api.script.tree.Leaf
 import org.powbot.mobile.script.ScriptManager
 
 
-class StopScript(script: Script) : Leaf<Script>(script, "Withdrawing items") {
+class StopScript(script: Script) : Leaf<Script>(script, "Stopping script") {
     override fun execute() {
         ScriptManager.stop()
     }
