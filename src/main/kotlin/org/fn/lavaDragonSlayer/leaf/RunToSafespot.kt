@@ -11,6 +11,6 @@ import org.powbot.api.script.tree.Leaf
 
 class RunToSafespot(script: Script) : Leaf<Script>(script, "Running to safespot") {
     override fun execute() {
-        Movement.walkTo(SAFE_TILE1)
+        Movement.step(SAFE_TILE1, 0)
     }
 }

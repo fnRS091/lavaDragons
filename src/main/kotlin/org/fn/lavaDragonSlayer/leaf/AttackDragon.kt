@@ -13,15 +13,15 @@ class AttackDragon (script: Script) : Leaf<Script>(script, "Attacking dragon") {
     override fun execute() {
         var mob = Npcs.stream().id(Constants.MOB_ID).nearest().first()
 
-        if(!Players.local().inCombat()) {
-            mob = Npcs.stream().nearest().id(Constants.MOB_ID).first()
-        }
+        // if(!Players.local().inCombat()) {
+        //     mob = Npcs.stream().nearest().id(Constants.MOB_ID).first()
+        // }
 
         if (mob.healthPercent() >= 1 && !mob.healthBarVisible() && Players.local().interacting() != mob) {
             if (mob.inViewport() && !Players.local().inCombat()) {
                 mob.interact("Attack")
-            } else {
-                Camera.angleToLocatable(mob)
+            } else if (!mob.inViewport()) {
+                Camera.turnTo(mob)
             }
         }
 
