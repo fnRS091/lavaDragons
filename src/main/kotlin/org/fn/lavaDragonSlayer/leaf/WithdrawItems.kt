@@ -8,7 +8,7 @@ import org.powbot.api.rt4.Inventory
 import org.powbot.api.script.tree.Leaf
 import java.util.concurrent.Callable
 
-class WithDrawItems(script: Script) : Leaf<Script>(script, "Withdrawing items") {
+class WithdrawItems(script: Script) : Leaf<Script>(script, "Withdrawing items") {
     override fun execute() {
         val food = script.config.food
 

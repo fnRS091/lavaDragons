@@ -2,10 +2,7 @@ package org.fn.lavaDragonSlayer.branch
 
 import org.fn.lavaDragonSlayer.Constants
 import org.fn.lavaDragonSlayer.Script
-import org.fn.lavaDragonSlayer.leaf.OpenBank
-import org.fn.lavaDragonSlayer.leaf.RunToNearestBank
-import org.fn.lavaDragonSlayer.leaf.WithDrawItems
-import org.fn.lavaDragonSlayer.leaf.XXX
+import org.fn.lavaDragonSlayer.leaf.*
 import org.powbot.api.rt4.*
 import org.powbot.api.script.tree.Branch
 import org.powbot.api.script.tree.TreeComponent
@@ -29,8 +26,8 @@ class BankOpen(script: Script) : Branch<Script>(script, "Bank open") {
 }
 
 class HasRequiredItemsInBank(script: Script) : Branch<Script>(script, "Required Items in bank") {
-    override val successComponent: TreeComponent<Script> = WithDrawItems(script)
-    override val failedComponent: TreeComponent<Script> = XXX(script)
+    override val successComponent: TreeComponent<Script> = WithdrawItems(script)
+    override val failedComponent: TreeComponent<Script> = StopScript(script) // Future plan: Buy at GE
 
     override fun validate(): Boolean {
         val food = script.config.food
