@@ -16,11 +16,12 @@ object Constants {
     val ENCLAVE: Tile = Tile(3134, 3629)
     val GRAND_EXCHANGE: Tile = Tile(3164, 3485)
 
-    val GATE = Tile(3199, 3857)
+    val GATE = Tile(3200, 3853)
     val LAVA_DRAGON_ISLAND: Area = Area(Tile(3174, 3860), Tile(3229, 3800))
 
     // Safe spot behind tree
     val SAFE_TILE1: Tile = Tile(3183, 3838)
+    val SAFE_AREA1: Area = Area(Tile(3179, 3840), Tile(3184, 3833))
 
     const val MOB_NAME: String = "Lava dragon"
     const val MOB_ID: Int = 6593

@@ -25,7 +25,7 @@ class InventorySpace(script: Script) : Branch<Script>(script, "Has inventory spa
     override val failedComponent: TreeComponent<Script> = AtBank(script)
 
     override fun validate(): Boolean {
-        return (Inventory.stream().count() <= 20)
+        return (Inventory.stream().count() <= 24)
     }
 }
 
