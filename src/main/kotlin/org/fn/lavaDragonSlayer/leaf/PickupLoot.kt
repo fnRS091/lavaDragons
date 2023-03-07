@@ -12,8 +12,8 @@ class PickupLoot (script: Script) : Leaf<Script>(script, "Pickup loot") {
     override fun execute() {
 
         val playerArea = Area(
-            Tile(Players.local().x() - 10, Players.local().y()+ 10),
-            Tile(Players.local().x() + 10, Players.local().y()- 10)
+            Tile(Players.local().x() - 6, Players.local().y()+ 6),
+            Tile(Players.local().x() + 6, Players.local().y()- 6)
         )
 
         GroundItems.stream().within(playerArea).list().forEach{
@@ -21,7 +21,6 @@ class PickupLoot (script: Script) : Leaf<Script>(script, "Pickup loot") {
                 Movement.walkTo(it.tile())
                 it.click("Take")
                 Condition.wait({ !it.valid() }, 200, 15)
-                System.out.println(""+it.valid().toString())
             }
         }
     }

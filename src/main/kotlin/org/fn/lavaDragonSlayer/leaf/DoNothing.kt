@@ -10,6 +10,6 @@ import org.powbot.api.script.tree.Leaf
 
 class DoNothing(script: Script) : Leaf<Script>(script, "letting time pass") {
     override fun execute() {
-        Condition.sleep(700)
+        Condition.sleep(800)
     }
 }

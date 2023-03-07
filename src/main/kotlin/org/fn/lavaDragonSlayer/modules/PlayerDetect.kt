@@ -1,5 +1,6 @@
 package org.fn.lavaDragonSlayer.modules
 
+import org.fn.lavaDragonSlayer.Constants.ENCLAVE_AREA
 import org.powbot.api.Area
 import org.powbot.api.Condition
 import org.powbot.api.Notifications
@@ -9,16 +10,14 @@ import org.powbot.mobile.script.ScriptManager
 
 class PlayerDetect : Runnable {
     var playerInArea: Boolean = false
-    var wildernessLOW: Int = 0
-    var wildernessHIGH: Int = 0
 
     override fun run() {
         while (!ScriptManager.isStopping()) {
-            if (Components.stream().widget(90).id(45).first().visible()) {
+            if (Components.stream().widget(90).id(45).first().visible() && !ENCLAVE_AREA.contains(Players.local())) {
                 val playerTile: Tile = Players.local().tile()
 
-                val tile1 = Tile(playerTile.x - 11, playerTile.y + 11)
-                val tile2 = Tile(playerTile.x + 11 , playerTile.y - 11)
+                val tile1 = Tile(playerTile.x - 12, playerTile.y + 12)
+                val tile2 = Tile(playerTile.x + 12 , playerTile.y - 12)
 
                 val curPlayerArea = Area(tile1, tile2)
 
@@ -29,8 +28,8 @@ class PlayerDetect : Runnable {
 
                     val wildernessLevels: List<String> = getLevel(Components.stream().widget(90).id(49).first().text())
 
-                    wildernessLOW = wildernessLevels[0].toInt()
-                    wildernessHIGH = wildernessLevels[1].toInt()
+                    val wildernessLOW = wildernessLevels[0].toInt()
+                    val wildernessHIGH = wildernessLevels[1].toInt()
 
                     if ((wildernessLOW..wildernessHIGH).contains(enemyPlayer.combatLevel)) {
                         // LOGOUT :((

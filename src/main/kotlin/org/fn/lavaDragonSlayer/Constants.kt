@@ -14,6 +14,7 @@ object Constants {
 
     // Wilderness Safespot + Bank
     val ENCLAVE: Tile = Tile(3134, 3629)
+    val ENCLAVE_AREA: Area = Area(Tile(3108, 3653), Tile(3173, 3596))
     val GRAND_EXCHANGE: Tile = Tile(3164, 3485)
 
     val GATE = Tile(3200, 3853)
